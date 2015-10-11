@@ -1,2 +1,2 @@
 # ninth
-front end framework, integrate backbone, reactjs, requirejs and other js libs like jquery.
+sample project, integrate backbone, reactjs, requirejs and other js libs like jquery.
