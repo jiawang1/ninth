@@ -1,0 +1,57 @@
+{
+	"app":{
+
+		"user":{
+				"userManagement":"用户管理",
+			    "enterprise":{
+			   		"userManagement":"企业用户管理",
+			   		"sellerReview":"个人卖家审核"
+
+			   }
+			},
+
+		"store":{
+				"storeManagement":"Form Element",
+				"store":{
+					"B-DropDown":"B-DropDown",
+					"InputList":"InputList",
+					"recStore":"店铺推荐"
+				}
+
+			},
+
+		"order":{
+
+				},
+
+		"product":{
+
+		},
+		"products":{
+			"pageTitle":"产品列表"
+
+		},
+		"category":{
+
+		},
+		"seller":{
+
+		}, 
+
+		"grid":{
+			"gridDemo":"Grid Demo",
+			"jqGrid":"JQuery Grid",
+			"nGrid":"Ninth Grid"
+		},
+
+		"form":{
+			"formDemo":"Form Element",
+			"BDropDown":"B-DropDown",
+			"InputList":"Input List"
+
+		}
+
+	}
+
+
+}

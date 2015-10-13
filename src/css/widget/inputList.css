@@ -1,0 +1,67 @@
+.input-list-section{
+	
+	border-bottom: 1px solid #ccc;
+}
+
+.input-list-section .section-header{
+	font-size: 17px;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0 10px 10px;
+	font-weight: bold;
+	margin-bottom: 2rem;
+}
+
+.input-list-section .action-before{
+	display: table-cell;
+	vertical-align: middle;
+	width: 20%;
+	color: #aaa;
+	cursor: pointer;
+	font-size: 1.8rem;
+
+}
+
+.input-list-section .action-after{
+	display: table-cell;
+	vertical-align: middle;
+	width: 5%;
+	color: #aaa;
+	cursor: pointer;
+	font-size: 1.8rem;
+	
+}
+
+.input-list-section .action-before:hover,.input-list-section .action-after:hover{
+	color: black;
+	
+}
+
+.input-list-section .input-group input.form-control{
+	  width: 100%;
+	  border-radius: 4px;
+	  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+}
+
+.input-list-section .input-group{
+	width: 100%;
+	table-layout: fixed;
+	margin-bottom: 1.5rem;
+}
+
+.input-list-section .inputList-hide{
+	display: none;
+}	
+
+.input-list-section .action-before:before{
+	padding-left: 75%;
+	
+}
+
+.input-list-section .action-after:before{
+
+	left: 40%;
+	position: relative;
+	
+}

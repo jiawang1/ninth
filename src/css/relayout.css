@@ -1,0 +1,134 @@
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+}
+
+div.container{
+     /*height: 100%;*/
+     margin: 10px;
+     margin: 0 auto;
+}
+
+.container .row {
+    height: 100%;
+}
+
+.container .row .nav-root{
+    border :1px solid #dce4ec;
+    /*height: 100%;*/
+/*
+    background: #e2e2e2; 
+    background: -moz-linear-gradient(45deg,  #e2e2e2 1%, #d1d1d1 62%, #fefefe 100%); 
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(1%,#e2e2e2), color-stop(62%,#d1d1d1), color-stop(100%,#fefefe));
+    background: -webkit-linear-gradient(45deg,  #e2e2e2 1%,#d1d1d1 62%,#fefefe 100%);
+    background: -o-linear-gradient(45deg,  #e2e2e2 1%,#d1d1d1 62%,#fefefe 100%);
+    background: -ms-linear-gradient(45deg,  #e2e2e2 1%,#d1d1d1 62%,#fefefe 100%); 
+    background: linear-gradient(45deg,  #e2e2e2 1%,#d1d1d1 62%,#fefefe 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=1 ); 
+*/
+    background-color: #eee;
+}
+
+div.nav-root{
+
+    padding:0;
+}
+.nav-root ul{
+      display: block;
+      width: 100%;
+      list-style: none;
+    padding: 0;
+  
+
+}
+
+.nav-root li{
+  width: 100%;
+  display: block;
+  color: #aaa;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: background .3s ease;
+  -moz-transition: background .3s ease;
+  transition: background .3s ease;
+  text-shadow: 0 -1px rgba(0,0,0,.5);
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  border-top: 1px solid rgba(255,255,255,.1);
+  display: block;
+  padding: .6em 2em;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-root li:hover,.nav-root li:active{
+    color: #666;
+    background-color:#fafafa;
+    cursor: pointer;
+}
+
+.nav-root li:hover a, .nav-root li.active a{
+    color: #666;
+}
+
+.container .row .main-root{
+    border :1px solid #dce4ec;
+    height: 100%;
+}
+
+
+textarea{
+    resize: none;
+}
+
+a{
+    color: #aaa;
+}
+
+a:hover, a:focus{
+   text-decoration: none;
+   color: #666;
+}
+
+.nav-root li.active{
+    color: #666;
+    background-color:#fafafa;
+}
+
+.nav-root li>p{
+    display: inline-block;
+}
+
+.nav-root .nav-sub{
+    padding: 0;
+}
+
+.nav-sub ul li{
+
+    padding: .4em 1em;
+}
+
+.nav-sub ul li:last-child{
+
+    border-bottom: none;
+}
+
+.nav-sub ul{
+    background-color: white;
+    
+}
+
+.nav-root .relayout-hide{
+    display: none;
+}
+
+.n-page-header legend{
+
+   padding: 1.5rem 1rem 2rem 1rem; 
+   border-color: #dce4ec;
+}
+
+

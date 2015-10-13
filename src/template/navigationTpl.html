@@ -1,0 +1,24 @@
+<ul>
+     <%for( var i = 0, j = data.length; i < j; i++){%>
+          <li data-link="<%=data[i].link%>" class=<%=(data[i].children)?"nav-super":""%>>
+            <%if(data[i].children){%>
+                 
+                <span class="glyphicon glyphicon-plus" aria-hidden="true">&nbsp;</span>  
+            <%}%>
+            <p><%-data[i].label%></p>
+        </li>
+        <%if(data[i].children){ %>
+             <li class="nav-sub relayout-hide">
+                <ul>
+                   <%for(var x = 0, y = data[i].children.length; x < y; x++){%>
+                    <li class="nav-sub-item" data-link="<%=data[i].children[x].link%>">
+                        <p><%-data[i].children[x].label%></p> 
+                    </li>
+                    <%}%>
+                </ul>
+
+            </li>
+        <%}%>
+        
+    <%}%>
+</ul>

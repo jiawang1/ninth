@@ -1,0 +1,73 @@
+<div class="form-horizontal sample-page">
+
+    <div id="legend" class="n-page-header">
+        <legend class="">Product Management</legend>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-xs-3" for="input01">Product Name</label>
+        <div class="controls col-xs-9">
+            <input type="text" placeholder="your product" class="form-control" value="<%=model.length%>">
+            <p class="help-block">product name</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-xs-3">Parent category</label>
+        <div class="controls col-xs-9">
+            <select class="form-control">
+                <option>Enter</option>
+                <option>Your</option>
+                <option>Options</option>
+                <option>Here!</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-3">Category ID</label>
+        <div class="controls col-xs-9">
+
+            <label class="radio-inline">
+                <input type="radio" value="1" checked="checked" name="group"> 1
+            </label>
+            <label class="radio-inline">
+                <input type="radio" value="2" name="group"> 2
+            </label>
+            <label class="radio-inline">
+                <input type="radio" value="3" name="group"> 3
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-3">Upload Product</label>
+
+        <div class="controls col-xs-9">
+            <input class="input-file" id="fileInput" type="file">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-3"></label>
+
+        <div class="controls col-xs-9">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    
+    <div class="form-group">        	
+    	<label class="control-label col-xs-3">设置店铺模板</label>
+        <div class="controls col-xs-9">
+            <select class="form-control" id="templateSelection">
+                <%for( var i = 0, j = model.length-1; i <= j; j--){%>
+        			<option><%-model[j]%></option>
+    			<%}%>
+            </select>
+        </div>        
+    </div>
+
+</div>

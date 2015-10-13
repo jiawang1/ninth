@@ -1,0 +1,46 @@
+
+
+#productListTab{
+	margin:10px 0 20px 0;
+	clear: both;
+}
+
+#productListTab ul.tabs-list,
+#productListTab .tabHead{
+	border-bottom:1px solid #979797;
+}
+
+#productListTab ul.tabs-list li{
+	float:left;
+	list-style:none;
+}
+
+#productListTab ul.tabs-list li a,
+#productListTab .tabHead{
+	display:block;
+	color: #666666;
+	font-size: 1.167em;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding:10px 20px 10px 20px;
+}
+
+#productListTab ul.tabs-list li.current a{
+	color: #000;
+    font-size:14px;
+	background:#fff;
+	border:1px solid #979797;
+	border-bottom:0;
+	margin:0 0 -1px 0;
+	padding:9px 19px 11px 19px
+}
+
+#productListTab  .current-info,
+#productListTab .content .tabhead{
+	display:none;
+}
+
+#productListTab .content{
+	position:relative;
+	margin:25px 0;
+}
