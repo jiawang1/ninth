@@ -1,5 +1,5 @@
-define(['jquery', 'backbone', 'underscore', 'text!../template/sampleTpl.html'
-  ], function($, Backbone, _, sSampleTemplate) {
+define(['jquery', 'backbone', 'underscore','react','reactDOM','jsx!widget/dropDown.jsx','text!../template/sampleTpl.html'
+  ], function($, Backbone, _, React,ReactDOM, DropDown, sSampleTemplate) {
   "use strict";
 
   var SampleView = Backbone.View.extend({ /* create view class*/
@@ -29,7 +29,13 @@ define(['jquery', 'backbone', 'underscore', 'text!../template/sampleTpl.html'
       that.$el.html(_.template(sSampleTemplate, {
         "model": {}
       }));
+      that.$el.append("<div class='jsx-container'>");
+      that.$el.append("<div class='dropMenu-container'>");
 
+      // console.log(DropDown);
+      var d1 = ReactDOM.render(<DropDown />, $(".jsx-container", that.$el )[0]);
+      ReactDOM.render(<DropDown />, $(".dropMenu-container", that.$el )[0]);
+    
       return this;
     }
 

@@ -13,7 +13,10 @@
                             jsx:'lib/jsx',
                             jqGrid:'widget/jquery.jqgrid.src',
                             text:"lib/text",
-                            dropDown:"lib/dropdown"
+                            dropDown:"lib/dropdown",
+                            react:"lib/react",
+                            reactDOM:"lib/react-dom"
+
                         },
                         shim: {
                             underscore: {

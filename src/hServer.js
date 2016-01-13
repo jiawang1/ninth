@@ -34,7 +34,7 @@ argv = argv.filter(function(item){
 var port = parseInt(argv[2]) || 8079;
 
 var targetHostSetting = {
-  hostname: argv[3] || "http://10.128.214.145",
+  hostname: argv[3] || "http://10.59.170.119",
   port: parseInt(argv[4]) || 9001,
   https: false
 

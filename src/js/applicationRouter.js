@@ -1,4 +1,4 @@
-define(['jquery','backbone', 'underscore','navigationMenu','sampleView',
+define(['jquery','backbone', 'underscore','navigationMenu','jsx!sampleView',
     
     'widget/inputList','widget/nGrid' ],
        function($,Backbone,_, Navigation,Sample){

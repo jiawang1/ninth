@@ -1,6 +1,6 @@
-define(['lib/react'],function(React){
+define(['react','reactDOM'],function(React, ReactDOM){
 	"use strict";
-	React.render(
+	ReactDOM.render(
   		<h1>Sample Project</h1>,
 	  	document.getElementById('example')
 	);

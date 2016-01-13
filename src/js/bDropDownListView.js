@@ -1,4 +1,4 @@
-define(['jquery','backbone', 'underscore','text!../template/bDropDownListTpl.html','dropDown'],function($,Backbone,_,sDropDownTemplate){
+define(['jquery','backbone', 'underscore','text!../template/bDropDownListTpl.html','bootstrap'],function($,Backbone,_,sDropDownTemplate){
     "use strict";
     
     var BDropDownListView = Backbone.View.extend({
