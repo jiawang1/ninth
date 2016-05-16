@@ -5,13 +5,14 @@
 
 (function(factory){
 		"use strict";
-		if (typeof define === 'function' && define.amd) {
-			 define(['react', 'reactDOM','exports','css!../../css/widget/DropDown.css'], function(React, ReactDOM, exports){
-			 		return exports.DropDown = factory(React, ReactDOM, exports, require);
-			 });
-		}
+	if (typeof define === 'function' ) {
+
+		 define(['react', 'reactDOM','exports','css!../../css/widget/DropDown.css'], function(React, ReactDOM, exports){
+		 		return exports.DropDown = factory(React, ReactDOM, exports, require);
+		 });
+	}
 		else if(typeof exports === 'object') {
-			 factory(require('react'),require('reactDOM'), exports);
+			 factory(require('react'),require('react-dom'), exports);
 		}
 		else {
 			factory();
@@ -30,7 +31,7 @@
     	renderMenu:function(){
     		
     		return this.state.items.map(function(item){
-		    			return (<MenuItem key={item.id} text={item.text} id={item.id} data-callback={this.handleItemSelected}/>);
+				return (<MenuItem key={item.id} text={item.text} id={item.id} data-callback={this.handleItemSelected}/>);
 		    		}.bind(this));
     	},
         componentWillMount:function(){
@@ -40,7 +41,7 @@
     		
     		var cid = id,
                 __index = -1;
-                console.log(this);
+                // console.log(this);
             if(Array.prototype.findIndex){
                 __index =  this.state.items.findIndex(function(item){
                     return (item.id + "") === cid;
@@ -64,7 +65,11 @@
     				return ;
     			}
     		}
-			this.setState({isShow: false});
+
+            if(this.state.isShow){
+                this.setState({isShow: false});
+            }
+			
     	},
 
     	componentDidMount:function(){

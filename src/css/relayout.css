@@ -4,6 +4,12 @@ html{
 
 body{
     height: 100%;
+    background:-moz-linear-gradient(to bottom,#2da9b1 0,#178299 50%,#1a4c7d 100%);
+    background:-webkit-gradient(to bottom,#2da9b1 0,#178299 50%,#1a4c7d 100%);
+    background:-webkit-linear-gradient(to bottom,#2da9b1 0,#178299 50%,#1a4c7d 100%);
+    background:-o-linear-gradient(to bottom,#2da9b1 0,#178299 50%,#1a4c7d 100%);
+    background:-ms-linear-gradient(to bottom,#2da9b1 0,#178299 50%,#1a4c7d 100%);
+    background:linear-gradient(to bottom,#2da9b1 0,#178299 50%,#1a4c7d 100%);
 }
 
 div.container{
@@ -40,7 +46,7 @@ div.nav-root{
       display: block;
       width: 100%;
       list-style: none;
-    padding: 0;
+      padding: 0;
   
 
 }
@@ -77,6 +83,7 @@ div.nav-root{
 .container .row .main-root{
     border :1px solid #dce4ec;
     height: 100%;
+    background:linear-gradient(to bottom,#dff2f3 0,#dcecf0 50%,#dde4eb 100%)
 }
 
 

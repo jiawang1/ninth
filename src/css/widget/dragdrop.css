@@ -1,0 +1,40 @@
+.dragger-container{
+
+	width:100%;
+	border:1px solid rgba(0,0,0,.2);
+	position: relative;
+	box-sizing: border-box;
+}
+
+.dragger-container .moveItem{
+
+	width: 100%;
+	padding: 0.4rem 0;
+	border:1px solid rgba(0,0,0,.2);
+
+
+}
+
+.dragger-container .moving{
+
+	position: absolute;
+	
+}
+
+.dragger-container .insertTarget{
+
+	outline: 2px solid red;	
+}
+
+
+.shadowTarget{
+
+	display: inline;
+}
+
+.shadow-active{
+	
+	display: block;
+	border: 1px dashed blue;
+	
+}

@@ -15,7 +15,7 @@
                             text:"lib/text",
                             dropDown:"lib/dropdown",
                             react:"lib/react",
-                            reactDOM:"lib/react-dom"
+                            reactDOM :"lib/react-dom"
 
                         },
                         shim: {

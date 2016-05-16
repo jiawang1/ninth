@@ -15,11 +15,24 @@ var AppRouter = Backbone.Router.extend({
             "grid/jqGrid": "showJQGrid",
             "grid/nGrid": "showNGrid",
             "form/b-dropdown":"showBDropDown" ,
-            "form/inputlist":"showInputList" 
+            "form/inputlist":"showInputList",
+            "form/dragdrop":"dragdrop",
+             "*invalidate":'test' 
         },
         
-    /*  destrpy method should be supplied to prevent memory leak*/
-    
+    /*  destrpy method should be supplied to prevent memory leak*/ 
+
+    test:function(){
+        console.log("can not match all routes");
+    },
+
+		
+		dragdrop:function(){
+			require(["dragdropView"],function(dd){
+				 $(".main-root").empty().append(new dd().render().$el);
+			});
+		},
+
         showBDropDown:function(){
             require(["bDropDownListView"], function(ListView){
                 $(".main-root").empty().append(new ListView().render().$el);
@@ -65,7 +78,7 @@ var AppRouter = Backbone.Router.extend({
 
      var __config = [
          {"label":Backbone.getI18n('app.grid.gridDemo'), "link": "#grid", children:[{"label":Backbone.getI18n('app.grid.jqGrid'), "link": "/jqGrid"},{"label":Backbone.getI18n('app.grid.nGrid'), "link": "/nGrid"}]},
-         {"label":Backbone.getI18n('app.form.formDemo'), "link": "#form",children:[{"label":Backbone.getI18n('app.form.BDropDown'), "link": "/b-dropdown"},{"label":Backbone.getI18n('app.form.InputList'), "link": "/inputlist"}]},
+         {"label":Backbone.getI18n('app.form.formDemo'), "link": "#form",children:[{"label":Backbone.getI18n('app.form.BDropDown'), "link": "/b-dropdown"},{"label":Backbone.getI18n('app.form.InputList'), "link": "/inputlist"},{"label":"Drag-Drop", "link": "/dragdrop"}]},
          {"label":"示例", "link": "#sample"}
     ];
 

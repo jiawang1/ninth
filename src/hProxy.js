@@ -1,16 +1,16 @@
 "use strict";
 
-var http = require("http")
-var https = require("https")
-var url = require("url");
-var path = require("path")
-var fs = require("fs");
-var crypto = require("crypto");
-var zlib = require('zlib');
+var http = require("http"),
+ https = require("https"),
+ url = require("url"),
+ path = require("path"),
+ fs = require("fs"),
+ crypto = require("crypto"),
+ zlib = require('zlib');
 
-var argv = process.argv.slice();
-var httpMode = true;
-var cacheMode = false;
+ argv = process.argv.slice();
+ httpMode = true;
+ cacheMode = false;
 
 argv.forEach(function(item){
     if (/^--/.test(item)) {
@@ -31,7 +31,7 @@ argv = argv.filter(function(item){
     return !/^--/.test(item);
 });
 
-var port = parseInt(argv[2]) || 8079;
+var port = parseInt(argv[2]) || 9090;
 
 var targetHostSetting = {
   hostname: argv[3] || "http://10.59.170.119",
@@ -83,7 +83,7 @@ var MIME = {
 };
 
 
-function serverCb(req, res) {
+function app(req, res) {
   console.log(req.url);
   var isResourceURL = /\/_ui/.test(req.url);
 
@@ -247,10 +247,10 @@ function serverCb(req, res) {
 
 };
 
-var server = httpMode ? http.createServer(serverCb) : https.createServer({
+var server = httpMode ? http.createServer(app) : https.createServer({
     key: fs.readFileSync('/Users/i054410/Documents/develop/self-cert/key.pem'),
     cert: fs.readFileSync('/Users/i054410/Documents/develop/self-cert/cert.pem')
-}, serverCb);
+}, app);
   
 server.listen(port, '0.0.0.0');
 

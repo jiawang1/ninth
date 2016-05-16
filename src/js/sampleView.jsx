@@ -32,8 +32,11 @@ define(['jquery', 'backbone', 'underscore','react','reactDOM','jsx!widget/dropDo
       that.$el.append("<div class='jsx-container'>");
       that.$el.append("<div class='dropMenu-container'>");
 
+       that.$el.append("<div class='table-container'>");
+
       // console.log(DropDown);
       var d1 = ReactDOM.render(<DropDown />, $(".jsx-container", that.$el )[0]);
+      console.log(d1);
       ReactDOM.render(<DropDown />, $(".dropMenu-container", that.$el )[0]);
     
       return this;
