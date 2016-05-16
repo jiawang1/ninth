@@ -19,8 +19,8 @@ define(['jquery','backbone', 'underscore','text!../template/dragdropTpl.html',
 		,render:function(){
             this.$el.html(_.template(sDragdrop));
 			$(".moveItem", this.$el).height(this.permHeight);
-			$(".dragger-container", this.$el).on("mousedown",$.proxy(this.onMouseDown, this))
-			.on("mousemove", $.proxy(this.onMouseMove, this))
+			$(".dragger-container", this.$el).on("mousedown",$.proxy(this.onMouseDown, this));
+			$("body").on("mousemove", $.proxy(this.onMouseMove, this))
 			.on("mouseup",$.proxy(this.onMouseUp, this));
             //  $(".input-list", this.$el).inputList({
             //    "label": 'Input List'
@@ -35,13 +35,13 @@ define(['jquery','backbone', 'underscore','text!../template/dragdropTpl.html',
 				return false;
 			}
 			e = e || window.event;
-			var $target= this.$moveingTarget = $(e.target || e.srcElement);
+			var $target= $(e.target || e.srcElement);
 
 			if($target.hasClass("dragger-container")){
 				return false;
 			}	
 			
-			$target = this.findTargetByClass($target, "moveItem");
+			 this.$moveingTarget = $target = this.findTargetByClass($target, "moveItem");
 			
 			if($target.length === 0){
 				console.error("can not find moving target");
@@ -61,6 +61,7 @@ define(['jquery','backbone', 'underscore','text!../template/dragdropTpl.html',
 			e.preventDefault();
 			e.stopPropagation();
 
+
 		}
 		,onMouseMove:function(e){
 			var that = this;
@@ -75,8 +76,6 @@ define(['jquery','backbone', 'underscore','text!../template/dragdropTpl.html',
 				top: _top	
 			});
 
-			var shadowPoint = this.$shadowBlock.offset();
-			
 		   var _targetIndex = -1;
 		   this.itemStack.some(function(currentValue, index){
 				if(currentValue.top >= _top){
@@ -86,21 +85,30 @@ define(['jquery','backbone', 'underscore','text!../template/dragdropTpl.html',
 		   });	
 		 
 		   if(_targetIndex === 0){
-				 that.placeAfterTargetID = null;
-			     that.placeBeforeTargetID = this.itemStack[0].id;
-					renderTargets([that.placeBeforeTargetID]);
-						
-			   }else if(_targetIndex > 0){
-				  that.placeBeforeTargetID = this.itemStack[_targetIndex].id;
-			      that.placeAfterTargetID =  this.itemStack[_targetIndex - 1].id;
-				  	renderTargets([that.placeAfterTargetID, that.placeBeforeTargetID ]);
+			   that.placeAfterTargetID = null;
+			   that.placeBeforeTargetID = this.itemStack[0].id;
+			   renderTargets([that.placeBeforeTargetID]);
+
+		   }else if(_targetIndex > 0){
+			   that.placeBeforeTargetID = this.itemStack[_targetIndex].id;
+			   that.placeAfterTargetID =  this.itemStack[_targetIndex - 1].id;
+			   renderTargets([that.placeAfterTargetID, that.placeBeforeTargetID ]);
 
 		   }else if (_targetIndex < 0){
 			   that.placeBeforeTargetID = null;
-				that.placeAfterTargetID = this.itemStack[ this.itemStack.length -1].id;
-				renderTargets([that.placeAfterTargetID]);
-				
+			   that.placeAfterTargetID = this.itemStack[ this.itemStack.length -1].id;
+			   renderTargets([that.placeAfterTargetID]);
+
 		   }
+
+		   if(this.moveHandler){
+			   clearTimeout(this.moveHandler);
+		   }
+		   this.moveHandler = setTimeout(function(){
+				
+		   }, 100);
+
+
 
 		   function renderTargets(ids){
 				
@@ -115,23 +123,25 @@ define(['jquery','backbone', 'underscore','text!../template/dragdropTpl.html',
 			   });
 			
 		   }
-			
-
 		}
 		,onMouseUp:function(e){
-
+			if(!this.startMoving) return false;
 			this.startMoving = false;
 			
-			this.$moveingTarget.detach();
+
+			this.$shadowBlock.removeClass("shadow-active");
+
+			if(this.placeBeforeTargetID ||this.placeAfterTargetID ){
+							this.$moveingTarget.detach();
 			
 
 			if(this.placeBeforeTargetID){
-				this.$shadowBlock.removeClass("shadow-active");
-				$("#" + this.placeBeforeTargetID).before(this.$moveingTarget);
+							$("#" + this.placeBeforeTargetID).before(this.$moveingTarget);
 			
 			}else if (this.placeAfterTargetID){
-					this.$shadowBlock.removeClass("shadow-active");
 					$("#" + this.placeAfterTargetID).after(this.$moveingTarget);
+			}
+
 			}
 			this.$moveingTarget.removeClass("moving");
 			$(".insertTarget").removeClass("insertTarget");
