@@ -61,7 +61,6 @@ define(['jquery','backbone', 'underscore','text!../template/dragdropTpl.html',
 			e.preventDefault();
 			e.stopPropagation();
 
-
 		}
 		,onMouseMove:function(e){
 			var that = this;
@@ -87,64 +86,62 @@ define(['jquery','backbone', 'underscore','text!../template/dragdropTpl.html',
 		   if(_targetIndex === 0){
 			   that.placeAfterTargetID = null;
 			   that.placeBeforeTargetID = this.itemStack[0].id;
-			   renderTargets([that.placeBeforeTargetID]);
-
 		   }else if(_targetIndex > 0){
 			   that.placeBeforeTargetID = this.itemStack[_targetIndex].id;
 			   that.placeAfterTargetID =  this.itemStack[_targetIndex - 1].id;
-			   renderTargets([that.placeAfterTargetID, that.placeBeforeTargetID ]);
 
 		   }else if (_targetIndex < 0){
 			   that.placeBeforeTargetID = null;
 			   that.placeAfterTargetID = this.itemStack[ this.itemStack.length -1].id;
-			   renderTargets([that.placeAfterTargetID]);
 
 		   }
 
 		   if(this.moveHandler){
 			   clearTimeout(this.moveHandler);
 		   }
-		   this.moveHandler = setTimeout(function(){
-				
-		   }, 100);
+		   this.moveHandler = setTimeout(
 
+					function(){
 
+					   var shadowID = that.$shadowBlock.attr("id");
+					   if(shadowID ===that.placeBeforeTargetID ||shadowID ===that.placeAfterTargetID){
+						   console.log("the same id");
+						   return;
+					   }
 
-		   function renderTargets(ids){
-				
-			   $(".dragger-container").children().each(function(inx, ele){
-					var $ele = $(ele);		
-				   if(ids.indexOf($ele.attr("id")) >= 0){
-						$ele.addClass("insertTarget");
-				   }else{
-						$ele.removeClass("insertTarget");
+					   that.$shadowBlock.detach();
+					   
+					   if(that.placeBeforeTargetID){
+						   $("#" + that.placeBeforeTargetID).before(that.$shadowBlock);
+
+					   }else{
+						   $("#" +that.placeAfterTargetID).after(that.$shadowBlock);
+					   }
+					   that.buildStack();
 				   }
-			   
-			   });
-			
-		   }
+	
+		   , 100);
+
 		}
 		,onMouseUp:function(e){
 			if(!this.startMoving) return false;
 			this.startMoving = false;
 			
-
 			this.$shadowBlock.removeClass("shadow-active");
 
 			if(this.placeBeforeTargetID ||this.placeAfterTargetID ){
-							this.$moveingTarget.detach();
+				this.$moveingTarget.detach();
 			
-
-			if(this.placeBeforeTargetID){
-							$("#" + this.placeBeforeTargetID).before(this.$moveingTarget);
-			
-			}else if (this.placeAfterTargetID){
-					$("#" + this.placeAfterTargetID).after(this.$moveingTarget);
-			}
+				if(this.placeBeforeTargetID){
+						$("#" + this.placeBeforeTargetID).before(this.$moveingTarget);
+				
+				}else if (this.placeAfterTargetID){
+						$("#" + this.placeAfterTargetID).after(this.$moveingTarget);
+				}
 
 			}
 			this.$moveingTarget.removeClass("moving");
-			$(".insertTarget").removeClass("insertTarget");
+		//	$(".insertTarget").removeClass("insertTarget");
 			this.$moveingTarget = null;
 		
 		}

@@ -8,7 +8,7 @@ var http = require("http"),
  crypto = require("crypto"),
  zlib = require('zlib');
 
- argv = process.argv.slice();
+var argv = process.argv.slice();
  httpMode = true;
  cacheMode = false;
 

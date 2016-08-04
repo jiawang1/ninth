@@ -54,8 +54,8 @@
                             }
                     });
 
-        require(["applicationRouter", 
-                 'css!../css/bootstrap.css', 
+        require(["applicationRouter" 
+                ,'css!../css/bootstrap.css', 
                  'css!../css/relayout.css',
                  'css!../css/style.css',
                  'jsx!helloworld.jsx'
