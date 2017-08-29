@@ -58,7 +58,7 @@
                 ,'css!../css/bootstrap.css', 
                  'css!../css/relayout.css',
                  'css!../css/style.css',
-                 'jsx!helloworld.jsx'
+                'jsx!helloworld.jsx'
                 ], function (router) {
             console.log("finish application");
         });

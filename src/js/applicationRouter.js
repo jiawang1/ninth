@@ -1,6 +1,7 @@
 define(['jquery','backbone', 'underscore','navigationMenu','jsx!sampleView',
     
-    'widget/inputList','widget/nGrid' ],
+  //  'widget/inputList','widget/nGrid' 
+    ],
        function($,Backbone,_, Navigation,Sample){
     "use strict";
 

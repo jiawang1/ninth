@@ -3,8 +3,8 @@ define(['jquery','backbone', 'underscore',"text!./../template/navigationTpl.html
     
     var NavigationMenu = Backbone.View.extend({
         $el:$("<ul>"),
-        initialize: function(aCongig){
-            this.__aConfig = aCongig;
+        initialize: function(aConfig){
+            this.__aConfig = aConfig;
             
             $.each(this.__aConfig,function(index, item){
                 item.children&&$.each(item.children, function(index,child){

@@ -176,7 +176,7 @@
 		}
 	});
 
-	return module?(module.exports = DropDown):(exports.DropDown=DropDown);
+	return typeof module !== 'undefined'?(module.exports = DropDown):(exports.DropDown=DropDown);
 
 }))
 

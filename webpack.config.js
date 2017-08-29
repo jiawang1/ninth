@@ -30,7 +30,9 @@ module.exports = {
 				test: /\.css$/,
 				exclude: /node_modules/,
 				loader: "style-loader!css-loader"
-			}
+			},
+			   { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.jpg$/, loader: "file-loader" }
 
 	
 	
@@ -46,8 +48,10 @@ module.exports = {
 					 presets: ['es2015', 'react']
 				}
 			 
-			 }
-
+			 },
+			    { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.jpg$/, loader: "file-loader" }
+		
 		]
 	}
 };
